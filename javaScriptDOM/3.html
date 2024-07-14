@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Set Paragraph Background Color</title>
+</head>
+<body>
+<p id="myParagraph">This is a paragraph.</p>
+<button onclick="changeBackgroundColor()">Change Background Color</button>
+
+<script>
+function changeBackgroundColor() {
+    var paragraph = document.getElementById("myParagraph");
+    paragraph.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+    var colors = ["#ff9999", "#99ff99", "#9999ff", "#ffff99", "#99ffff"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+</script>
+
+</body>
+</html>

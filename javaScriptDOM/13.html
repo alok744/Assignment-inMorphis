@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Get Window Dimensions on Resize</title>
+</head>
+<body>
+  <h2>Window Dimensions</h2>
+  <p>Width: <span id="width"></span></p>
+  <p>Height: <span id="height"></span></p>
+
+  <script>
+    function updateDimensions() {
+      document.getElementById('width').textContent = window.innerWidth;
+      document.getElementById('height').textContent = window.innerHeight;
+    }
+
+    updateDimensions();
+
+    window.addEventListener('resize', updateDimensions);
+  </script>
+</body>
+</html>

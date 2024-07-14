@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Drawing Examples</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white p-10">
+    <div class="mb-10">
+        <canvas id="canvas1" width="100" height="100" class="border"></canvas>
+    </div>
+
+    <div class="mb-10">
+        <canvas id="canvas2" width="100" height="100" class="border"></canvas>
+    </div>
+
+    <div class="mb-10">
+        <canvas id="canvas3" width="100" height="100" class="border"></canvas>
+    </div>
+
+    <div class="mb-10">
+        <canvas id="canvas4" width="100" height="100" class="border"></canvas>
+    </div>
+
+    <div>
+        <canvas id="myCanvas" width="500" height="500" class="border"></canvas>
+    </div>
+
+    <script>
+        // Drawing for Canvas 1: Rectangular Shape
+        const canvas1 = document.getElementById('canvas1');
+        const ctx1 = canvas1.getContext('2d');
+        ctx1.fillStyle = 'black';
+        ctx1.fillRect(10, 10, 80, 80);
+        ctx1.clearRect(30, 30, 40, 40);
+        ctx1.strokeRect(40, 40, 20, 20);
+
+        // Drawing for Canvas 2: Circle
+        const canvas2 = document.getElementById('canvas2');
+        const ctx2 = canvas2.getContext('2d');
+        ctx2.beginPath();
+        ctx2.arc(50, 50, 40, 0, 2 * Math.PI);
+        ctx2.strokeStyle = 'red';
+        ctx2.stroke();
+
+        // Drawing for Canvas 3: Intersecting Rectangles
+        const canvas3 = document.getElementById('canvas3');
+        const ctx3 = canvas3.getContext('2d');
+        ctx3.fillStyle = 'red';
+        ctx3.fillRect(10, 10, 50, 50);
+        ctx3.fillStyle = 'rgba(0, 0, 255, 0.5)';
+        ctx3.fillRect(30, 30, 50, 50);
+
+        // Drawing for Canvas 4: Right-angled Triangle
+        const canvas4 = document.getElementById('canvas4');
+        const ctx4 = canvas4.getContext('2d');
+        ctx4.beginPath();
+        ctx4.moveTo(10, 10);
+        ctx4.lineTo(10, 90);
+        ctx4.lineTo(90, 90);
+        ctx4.closePath();
+        ctx4.fillStyle = 'black';
+        ctx4.fill();
+
+        // Drawing for myCanvas: Diagonal Circles
+        var myCanvas = document.getElementById('myCanvas');
+        var ctx = myCanvas.getContext('2d');
+
+        // Function to draw a circle
+        function drawCircle(x, y, radius, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Number of circles to draw
+        var numCircles = 6;
+        var radius = 20;
+        var startX = 50;
+        var startY = 50;
+        var offset = 50;
+
+        // Draw the circles
+        for (var i = 0; i < numCircles; i++) {
+            var grayValue = Math.floor((255 / (numCircles - 1)) * i);
+            var color = 'rgb(' + grayValue + ',' + grayValue + ',' + grayValue + ')';
+            drawCircle(startX + i * offset, startY + i * offset, radius, color);
+        }
+    </script>
+</body>
+
+</html>

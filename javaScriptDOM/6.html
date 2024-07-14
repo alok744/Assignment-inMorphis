@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Change the content of a cell</title>
+</head>
+<body>
+<table id="myTable" border="1">
+  <tr><td>Row1 cell1</td><td>Row1 cell2</td></tr>
+  <tr><td>Row2 cell1</td><td>Row2 cell2</td></tr>
+  <tr><td>Row3 cell1</td><td>Row3 cell2</td></tr>
+</table>
+<form>
+  Row: <input type="number" id="rowIndex" value="1"><br>
+  Column: <input type="number" id="colIndex" value="1"><br>
+  Content: <input type="text" id="newContent" value="New Content"><br>
+  <input type="button" onclick="changeContent()" value="Change content">
+</form>
+
+<script>
+function changeContent() {
+    
+    var rowIndex = document.getElementById("rowIndex").value;
+    var colIndex = document.getElementById("colIndex").value;
+    var newContent = document.getElementById("newContent").value;
+
+    var table = document.getElementById("myTable");
+
+    if (rowIndex >= 1 && rowIndex <= table.rows.length && colIndex >= 1 && colIndex <= table.rows[0].cells.length) {
+        table.rows[rowIndex - 1].cells[colIndex - 1].innerHTML = newContent;
+    } else {
+        alert("Invalid row or column index.");
+    }
+}
+</script>
+
+</body>
+</html>
